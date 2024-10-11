@@ -46,4 +46,6 @@ about:
   summary: 'Copy Number study and Segmentation for multivariate biological data'
   description: 'In this package, a Hidden Semi Markov Model (HSMM) and one homogeneous segmentation model are designed and implemented for segmentation genomic data, with the aim of assisting in transcripts detection using high throughput technology like RNA-seq or tiling array, and copy number analysis using aCGH or sequencing.'
   license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
-
+extra:
+  additional-platforms:
+    - linux-aarch64
