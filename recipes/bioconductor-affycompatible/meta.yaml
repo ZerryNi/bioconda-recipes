@@ -10,7 +10,7 @@ source:
     - 'https://bioconductor.org/packages/{{ bioc }}/bioc/src/contrib/{{ name }}_{{ version }}.tar.gz'
     - 'https://bioarchive.galaxyproject.org/{{ name }}_{{ version }}.tar.gz'
     - 'https://depot.galaxyproject.org/software/bioconductor-{{ name|lower }}/bioconductor-{{ name|lower }}_{{ version }}_src_all.tar.gz'
-  md5: ba2f2f8dd8d5a678dc41d5fa86b322f8
+  sha256: 74393e8cec13d9299c24f25717c73300876f315df74d3f7a6a4fbbad158ee7ad
 build:
   number: 0
   rpaths:
