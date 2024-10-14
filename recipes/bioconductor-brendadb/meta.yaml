@@ -64,4 +64,6 @@ about:
   summary: 'The BRENDA Enzyme Database'
   description: 'R interface for importing and analyzing enzyme information from the BRENDA database.'
   license_file: LICENSE
-
+extra:
+  additional-platforms:
+    - linux-aarch64
