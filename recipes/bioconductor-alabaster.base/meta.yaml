@@ -13,7 +13,7 @@ source:
     - 'https://depot.galaxyproject.org/software/bioconductor-{{ name }}/bioconductor-{{ name }}_{{ version }}_src_all.tar.gz'
   md5: 2d6215dfe9b8412438f9b05b54be2331
 build:
-  number: 0
+  number: 1
   rpaths:
     - lib/R/lib/
     - lib/
@@ -37,7 +37,7 @@ requirements:
     - 'bioconductor-rhdf5 >=2.46.0,<2.47.0'
     - 'bioconductor-rhdf5lib >=1.24.0,<1.25.0'
     - 'bioconductor-s4vectors >=0.40.0,<0.41.0'
-    - r-base
+    - r-base1
     - r-jsonlite
     - r-jsonvalidate
     - r-rcpp
