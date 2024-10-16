@@ -6,7 +6,9 @@ else
 	./configure --prefix=${PREFIX} CXXFLAGS="${CXXFLAGS} -Wno-error=unused-result"
 fi
 
-make install
+sed -i '/const edge_property_type& ep = get(edge_bundle, g, e);/c \ const edge_property_type ep = get(edge_bundle, g, e);' $SRC_DIR/Graph/DotIO.h
+
+make install 
 
 mkdir -p ${PREFIX}/bin/share/$PKG_NAME-$PKG_VERSION-$PKG_BUILDNUM/Examples
 mkdir -p ${PREFIX}/bin/share/$PKG_NAME-$PKG_VERSION-$PKG_BUILDNUM/src

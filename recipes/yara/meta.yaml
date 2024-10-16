@@ -5,19 +5,31 @@ package:
   version: {{ version }}
 
 build:
-  number: 3
+  number: 4
+  run_exports:
+    - {{ pin_subpackage('yara', max_pin="x.x") }}
 
 source:
-  - url:  http://packages.seqan.de/yara/yara-{{ version }}-Mac-x86_64.zip     # [osx]
-    sha256: d519e797c1c66252331146b63f0cb6edba9c1a6a9e7b342fd60e7344b29baf36  # [osx]
-  - url: http://packages.seqan.de/yara/yara-{{ version }}-Linux-x86_64_sse4.tar.bz2  # [linux]
-    sha256: 4f68552fbb4e4002fc4320bdd60b76c678e17d087bd3f893bf179387b1668b40         # [linux]
+  - url: https://github.com/seqan/seqan/archive/refs/tags/seqan-v2.4.0.tar.gz
+    sha256: d7084d17729214003e84818e0280a16f223c8f1c6a30eeef040c27e0c0047bd7
+        #  - url:  http://packages.seqan.de/yara/yara-{{ version }}-Mac-x86_64.zip     # [osx]
+        #    sha256: d519e797c1c66252331146b63f0cb6edba9c1a6a9e7b342fd60e7344b29baf36  # [osx]
+        #  - url: http://packages.seqan.de/yara/yara-{{ version }}-Linux-x86_64_sse4.tar.bz2  # [linux]
+        #    sha256: 4f68552fbb4e4002fc4320bdd60b76c678e17d087bd3f893bf179387b1668b40         # [linux]
 
 requirements:
+  build:
+    - make
+    - {{ compiler('cxx') }}
+ 
+  host:
+    - zlib
+    - bzip2  
+  
   run:
     - bzip2
     - zlib
-
+ 
 test:
   commands:
     - yara_indexer --help 2>&1 > /dev/null
@@ -38,3 +50,5 @@ extra:
   skip-lints:
     - should_be_noarch_generic
     - should_not_be_noarch_source
+  additional-platforms:
+    - linux-aarch64

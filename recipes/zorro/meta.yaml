@@ -13,8 +13,10 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 4
+  number: 5
   skip: true  # [osx]
+  run_exports: # run_exports这个要配置上, 不然提交可能check不通过
+    - {{ pin_subpackage('zorro', max_pin="x.x") }}
 
 requirements:
   build:
@@ -35,3 +37,7 @@ about:
   license: Apache License 2.0
   license_family: Apache
   summary: "ZORRO is a probabilistic masking program that assigns confidence scores to each column in a multiple sequence alignment."
+
+extra: # 一般我们要加这个extra配置,指示aarch64架构也支持,但是如果在build下已经指示是noarch了,就不要加这个了
+  additional-platforms:
+    - linux-aarch64

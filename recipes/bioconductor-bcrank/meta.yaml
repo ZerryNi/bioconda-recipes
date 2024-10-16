@@ -48,4 +48,3 @@ extra:
     name: bioconductor-bcrank
     path: recipes/bioconductor-bcrank
     version: 1.42.0
-

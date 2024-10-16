@@ -11,10 +11,12 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 5
+  number: 6
   skip: True  # [py27] 
   entry_points:
     - porechop = porechop.porechop:main
+  run_exports:
+    - {{ pin_subpackage('artic-porechop', max_pin="x.x") }}    
 
 requirements:
   build:
@@ -29,6 +31,10 @@ requirements:
 test:
   commands:
     - porechop -h
+
+extra:
+  additional-platforms:
+    - linux-aarch64
 
 about:
   home: https://github.com/artic-network/Porechop
