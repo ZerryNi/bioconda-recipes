@@ -9,7 +9,7 @@ source:
   sha256: b3318b09458337087920eb13e6f24d562ec93694ac55e03727acf3fef5957cea
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install --no-deps --ignore-installed .
   rpaths:

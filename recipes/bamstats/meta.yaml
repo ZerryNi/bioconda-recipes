@@ -6,7 +6,9 @@ package:
   version: {{ version }}
 
 build:
-  number: 0
+  number: 1
+  run_exports: # run_exports这个要配置上, 不然提交可能check不通过
+    - {{ pin_subpackage('bamstats', max_pin="x.x") }}
 
 source:
   - url: https://github.com/guigolab/{{ name }}/archive/v{{ version }}.tar.gz
@@ -14,7 +16,7 @@ source:
 
 requirements:
   build:
-    - {{ compiler('go') }}
+    - go 
 
 test:
   commands:
