@@ -13,7 +13,7 @@ source:
     - 'https://depot.galaxyproject.org/software/bioconductor-{{ name }}/bioconductor-{{ name }}_{{ version }}_src_all.tar.gz'
   md5: b16939076d7ca77f0254c70e6fd35029
 build:
-  number: 0
+  number: 1
   rpaths:
     - lib/R/lib/
     - lib/
@@ -29,7 +29,7 @@ requirements:
     - 'bioconductor-summarizedexperiment >=1.30.0,<1.31.0'
     - r-ape
     - r-assertthat
-    - r-base
+    - 'r-base >=3.6.3'
     - r-caret
     - r-covr
     - r-dplyr
@@ -62,7 +62,7 @@ requirements:
     - 'bioconductor-summarizedexperiment >=1.30.0,<1.31.0'
     - r-ape
     - r-assertthat
-    - r-base
+    - 'r-base >=3.6.3'
     - r-caret
     - r-covr
     - r-dplyr
