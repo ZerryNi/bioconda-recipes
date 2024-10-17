@@ -13,7 +13,7 @@ source:
     - 'https://depot.galaxyproject.org/software/bioconductor-{{ name|lower }}/bioconductor-{{ name|lower }}_{{ version }}_src_all.tar.gz'
   md5: 2539b609076f98e95e044f33fe443bdf
 build:
-  number: 0
+  number: 1
   rpaths:
     - lib/R/lib/
     - lib/
@@ -53,4 +53,5 @@ extra:
     name: bioconductor-birewire
     path: recipes/bioconductor-birewire
     version: 3.12.0
-
+  additional-platforms:
+    - linux-aarch64
