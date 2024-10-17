@@ -13,7 +13,7 @@ source:
     - 'https://depot.galaxyproject.org/software/bioconductor-{{ name|lower }}/bioconductor-{{ name|lower }}_{{ version }}_src_all.tar.gz'
   md5: 31f6ed155e1126b62c5a6cd7fbd6c742
 build:
-  number: 0
+  number: 1
   rpaths:
     - lib/R/lib/
     - lib/
