@@ -22,10 +22,10 @@ build:
 requirements:
   host:
     - 'bioconductor-bsgenome >=1.70.0,<1.71.0'
-    - 'r-base >=3.6.3'
+    - r-base
   run:
     - 'bioconductor-bsgenome >=1.70.0,<1.71.0'
-    - 'r-base >=3.6.3'
+    - r-base
     - curl
     - 'bioconductor-data-packages >=20231203'
 test:
