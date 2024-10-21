@@ -13,7 +13,7 @@ source:
     - 'https://depot.galaxyproject.org/software/bioconductor-{{ name|lower }}/bioconductor-{{ name|lower }}_{{ version }}_src_all.tar.gz'
   md5: 41f927aa0d6ffbdaa6ad93c9135409e6
 build:
-  number: 11
+  number: 12
   rpaths:
     - lib/R/lib/
     - lib/
@@ -22,10 +22,10 @@ build:
 requirements:
   host:
     - 'bioconductor-bsgenome >=1.70.0,<1.71.0'
-    - r-base
+    - 'r-base >=3.6.3'
   run:
     - 'bioconductor-bsgenome >=1.70.0,<1.71.0'
-    - r-base
+    - 'r-base >=3.6.3'
     - curl
     - 'bioconductor-data-packages >=20231203'
 test:
