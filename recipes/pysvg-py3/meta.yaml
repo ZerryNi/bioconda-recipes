@@ -9,12 +9,8 @@ source:
   sha256:  a1183aa5d89871298c11f25d28640edc3798b6ed1e2b2a95c30d35985d6431d0
 
 build:
-<<<<<<< HEAD
   number: 8
   noarch: python
-=======
-  number: 0
->>>>>>> upstream/pysvg-py3
   skip: true  # [py27]
   run_exports:
     - {{ pin_subpackage('pysvg-py3', max_pin="x.x") }}
@@ -45,5 +41,3 @@ about:
 extra:
   recipe-maintainers:
     - zachcp
-  additional-platforms:
-    - linux-aarch64
