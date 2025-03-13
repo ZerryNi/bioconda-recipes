@@ -10,7 +10,7 @@ source:
   sha256: b3c53fb0e606a5cfec75cbc84f7c215f57f43ce00d8e50f449513acdad76da73
 
 build:
-  number: 3
+  number: 4
   run_exports:
     - {{ pin_subpackage("eggnog-mapper", max_pin="x") }}
   noarch: python
