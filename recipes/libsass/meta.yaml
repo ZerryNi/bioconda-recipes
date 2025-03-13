@@ -63,4 +63,4 @@ extra:
     - marcelotrevisani
     - xhochy
   additional-platforms:
-    - linux-aarch64       # openEuler-22.03-SP3 aarch64
+    - linux-aarch64
