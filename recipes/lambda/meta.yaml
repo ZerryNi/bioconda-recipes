@@ -23,7 +23,7 @@ requirements:
     - make
   host:
     - bzip2
-    - seqan-library
+    - seqan-library 
     - zlib
 
 test:
