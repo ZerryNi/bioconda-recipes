@@ -28,12 +28,12 @@ requirements:
     - {{posix}}automake
     - {{posix}}pkg-config
     - {{posix}}make
-    - setuptools <81
+    - git
   host:
     - r-base >=3.6.3
     - pcre
     - liblapack
-    - setuptools <81
+    - git
   run:
     - r-base >=3.6.3
     - pcre
