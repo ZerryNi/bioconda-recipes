@@ -35,3 +35,4 @@ echo "#! /bin/bash" > $testEnvironment;
 echo 'DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )' >>  $testEnvironment;
 echo '$DIR/../share/'$(basename $OUTDIR)/testEnvironment.sh '$@' >> $testEnvironment;
 chmod +x $testEnvironment
+
