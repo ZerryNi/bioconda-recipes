@@ -10,7 +10,7 @@ about:
 build:
   number: 10
   run_exports:
-    - {{ pin_compatible('ushuffle', exact=True) }}
+    - {{ pin_subpackage("ushuffle",max_pin="x.x") }}
 
 source:
   url: https://github.com/s-will/ushuffle/archive/v1.2.2.tar.gz
