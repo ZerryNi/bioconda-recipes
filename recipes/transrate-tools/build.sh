@@ -7,9 +7,7 @@ ln -s $BUILD_PREFIX/lib bamtools/
 ln -s $BUILD_PREFIX/include/bamtools/api bamtools/include/
 ln -s $BUILD_PREFIX/include/bamtools/shared bamtools/include/
 
-if [[ ${target_platform}  == "linux-aarch64" ]]; then
-	sed -i "43c \\\  find_package (ZLIB REQUIRED)" CMakeLists.txt
-fi
+sed -i "43c \\\  find_package (ZLIB REQUIRED)" CMakeLists.txt
 mkdir -p build
 pushd build
 
