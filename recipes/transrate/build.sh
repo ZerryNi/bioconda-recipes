@@ -1,5 +1,8 @@
 #!/bin/bash
 set -x
+export CFLAGS="-I${PREFIX}/include"  # 确保头文件可找到
+export LDFLAGS="-L${PREFIX}/lib -lcrypt"
+
 mkdir -p ${PREFIX}/bin
 gem build transrate.gemspec
 gem install -n ${PREFIX}/bin transrate

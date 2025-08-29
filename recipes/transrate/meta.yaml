@@ -11,24 +11,28 @@ source:
     - patch
 
 build:
-  number: 6
+  number: 7
   skip: True  # [osx]
+  run_exports:
+    - {{ pin_subpackage("transrate",max_pin="x.x") }}	
 
 requirements:
   build:
-    - {{ compiler('c') }}
+    - {{ compiler('c') }} =12
     - make
+    - libxcrypt
   host:
-    - ruby >=2
+    - ruby
     - rb-bundler
+    - zlib =1.3.1
   run:
-    - ruby >=2
+    - ruby
     - rb-bundler
-    - boost 1.60
-    - snap-aligner 1.0dev.96
-    - salmon 0.6.0
-    - transrate-tools 1.0.0
-    - blast 2.2.31
+    - boost 
+    - snap-aligner 
+    - salmon
+    - zlib =1.3.1
+    - transrate-tools 1.0.0 
 
 test:
   commands:
@@ -45,3 +49,5 @@ about:
 extra:
   identifiers:
     - doi:10.1101/gr.196469.115
+  additional-platforms:
+    - linux-aarch64
