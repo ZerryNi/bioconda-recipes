@@ -14,25 +14,30 @@ source:
     - relocate.sepp.config.patch
 
 build:
-  number: 0
+  number: 1
   run_exports:
     - {{ pin_subpackage('sepp', max_pin="x") }}
 
 requirements:
   build:
     - {{ compiler('c') }}
+    - dendropy 5.0.8 
+    - hmmer 3.4
+    - python =3.11.13
+    - hatchling
   host:
-    - python
+    - python =3.11.13
     - setuptools
     - hatchling
     - pip
-    - dendropy
     - openjdk
-    - hmmer
+    - dendropy 5.0.8
+    - hmmer 3.4 
   run:
-    - python
+    - hmmer 
+    - python =3.11.13
     - pasta
-    - pplacer ==1.1.alpha17
+    - pplacer >=1.1.alpha17
 
 test:
   commands:
@@ -55,3 +60,7 @@ about:
 extra:
   identifiers:
     - biotools:sepp
+  additional-platforms:
+    - linux-aarch64
+#     osx-arm64 builds but hangs in tests
+#    - osx-arm64
