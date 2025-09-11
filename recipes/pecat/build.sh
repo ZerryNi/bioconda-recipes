@@ -1,6 +1,7 @@
 #!/bin/bash
-set -x  
-set -e  
+set -x
+set -e
+
 
 export LIBRARY_PATH="${PREFIX}/lib"
 export LD_LIBRARY_PATH="${PREFIX}/lib"
@@ -8,7 +9,6 @@ export CPATH="${PREFIX}/include"
 export C_INCLUDE_PATH="${PREFIX}/include"
 export CPLUS_INCLUDE_PATH="${PREFIX}/include"
 export PATH="${PATH}:${PREFIX}/bin"
-
 
 case $(uname -m) in
     aarch64|arm*)
