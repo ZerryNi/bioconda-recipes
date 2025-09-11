@@ -2,7 +2,6 @@
 set -x
 set -e
 
-
 export LIBRARY_PATH="${PREFIX}/lib"
 export LD_LIBRARY_PATH="${PREFIX}/lib"
 export CPATH="${PREFIX}/include"
@@ -13,7 +12,7 @@ export PATH="${PATH}:${PREFIX}/bin"
 case $(uname -m) in
     aarch64|arm*)
         CFLAGS="${CFLAGS} -march=armv8-a+simd -DKSW_CPU_DISPATCH=0"
-        CFLAGS="${CFLAGS} -mtune=cortex-a72"  
+        CFLAGS="${CFLAGS} -mtune=cortex-a72"
         ;;
     *)
         CFLAGS="${CFLAGS} -march=native"
@@ -44,6 +43,7 @@ clean:
 EOF
 
 sed -i 's/<TAB>/\t/g' ${KSW2_DIR}/Makefile
+
 
 
 cd "${KSW2_DIR}" || exit 1
