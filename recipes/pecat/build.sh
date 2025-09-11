@@ -46,7 +46,6 @@ EOF
 sed -i 's/<TAB>/\t/g' ${KSW2_DIR}/Makefile
 
 
-
 cd "${KSW2_DIR}" || exit 1
 make clean || true
 make CC="${CC}" AR="${AR}" CFLAGS="${CFLAGS}" libksw2.a || exit 1
