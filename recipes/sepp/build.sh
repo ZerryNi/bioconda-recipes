@@ -6,21 +6,13 @@ config_sepp -c
 config_upp -c
 
 # copy bundled binaries, but hmmer, pplacer and guppy which should be provided by conda, into $PREFIX/bin/
+# looks like only binary remaining after the exclusions is now a .jar file
 mkdir -p $PREFIX/bin/
 cp -v `cat $SRC_DIR/.sepp/main.config | grep "^path" | grep -v "hmm" | grep -v "pplacer" | grep -v "guppy" | cut -d "=" -f 2` $PREFIX/bin/
 cp -v `cat $SRC_DIR/.sepp/upp.config | grep "^path" | grep -v "hmm" | grep -v "pplacer" | grep -v "guppy" | grep -v "run_pasta" | cut -d "=" -f 2` $PREFIX/bin/
 
 # make the run-sepp.sh script part of the deployment
-#mv -v sepp-package/run-sepp.sh $PREFIX/bin/run-sepp.sh
-mv -v sepp-package/sepp/run_sepp.py $BUILD_PREFIX/bin/run-sepp.sh
-cat > "$PREFIX/etc/conda/activate.d/env_vars.sh" <<EOF
-#!/bin/bash
-export PATH="$BUILD_PREFIX/bin:\$PATH"  # 
-EOF
-#mv -v $BUILD_PREFIX/bin/run_sepp.py $PREFIX/bin/run-sepp.sh
-
-#sed -i 's|run_sepp.py|$BUILD_PREFIX/bin/run_sepp.py|g' 
-#cp -vf  sepp-package/run-sepp.sh $PREFIX/bin/run-sepp.sh
+mv -v sepp-package/run-sepp.sh $PREFIX/bin/run-sepp.sh
 
 # SEPP's mechanism to identify the location of binaries is a bit complicated.
 # Paths to binaries like hmmsearch, pplacer, ... can be configured in a file
@@ -39,7 +31,6 @@ mkdir -p $PREFIX/share/sepp/sepp
 mv -v sepp-package/sepp/default.main.config $PREFIX/share/sepp/sepp/main.config
 # copy UPP config
 cp -f ./.sepp/upp.config $PREFIX/share/sepp/sepp/upp.config
-mkdir -p "$SRC_DIR/.sepp"
 
 # replace $PREFIX with /opt/anaconda1anaconda2anaconda3 for later replacement of concrete build PREFIX
 # note: can't apply a patch here, as upp.config is not part of upstream but gets generated during python setup
@@ -53,7 +44,7 @@ then
 fi
 
 # === b+c ===: determine correct path for source sub-directory in deployment and store in home.path
-#echo "${PREFIX}/share/sepp/sepp" > $SP_DIR/sepp-*.dist-info/home.path
+echo "${PREFIX}/share/sepp/sepp" > $SP_DIR/sepp-*.dist-info/home.path
 
 # copy files for tests to shared conda directory
 mkdir -p $PREFIX/share/sepp/ref/
@@ -61,5 +52,3 @@ cp -vf test/unittest/data/q2-fragment-insertion/input_fragments.fasta $PREFIX/sh
 cp -vf test/unittest/data/q2-fragment-insertion/reference_alignment_tiny.fasta $PREFIX/share/sepp/ref/
 cp -vf test/unittest/data/q2-fragment-insertion/reference_phylogeny_tiny.nwk $PREFIX/share/sepp/ref/
 cp -vf test/unittest/data/q2-fragment-insertion/RAxML_info-reference-gg-raxml-bl.info $PREFIX/share/sepp/ref/
-
-

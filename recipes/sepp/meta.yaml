@@ -21,21 +21,17 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
-    - dendropy 5.0.8 
-    - hmmer 3.4
-    - python =3.11.13
-    - hatchling
   host:
-    - python =3.11.13
+    - python
     - setuptools
     - hatchling
     - pip
+    - dendropy
     - openjdk
-    - dendropy 5.0.8
-    - hmmer 3.4 
+    - hmmer
   run:
-    - hmmer 
-    - python =3.11.13
+    - hmmer
+    - python
     - pasta
     - pplacer >=1.1.alpha17
 
