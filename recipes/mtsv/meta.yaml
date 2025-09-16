@@ -11,6 +11,7 @@ source:
 
 build:
   number: 5
+  skip: true  # [osx]
   entry_points:
     - mtsv = mtsv.main:main
     - mtsv_setup = mtsv.mtsv_prep.main:main
@@ -20,14 +21,14 @@ build:
 
 requirements:
   build:
-    - {{ compiler('cxx') }}
+    - {{ compiler('cxx')}}
   host:
     - python
     - pip
   run:
     - python
-    - snakemake-minimal >=4.1.0
-    - pandas >=0.20.3
+    - snakemake>=4.1.0
+    - pandas>=0.20.3
     - ete3
     - biopython
     - scipy
@@ -42,8 +43,8 @@ requirements:
     - bwa
     - samtools
     - gsl
-    - kraken2 >=2.1.2
-    - bracken >=2.6.1
+    - kraken2>=2.1.2
+    - bracken>=2.6.1
 
 test:
   imports:
@@ -66,4 +67,3 @@ extra:
     - tfursten
   additional-platforms:
     - linux-aarch64
-    - osx-arm64
