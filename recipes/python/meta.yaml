@@ -1,0 +1,74 @@
+{% set name = "python" %}
+{% set version = "2.7.16" %}
+{% set build_number = "0" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  url: https://www.python.org/ftp/python/{{ version }}/Python-{{ version }}.tgz
+  sha256: 01da813a3600876f03f46db11cc5c408175e99f03af2ba942ef324389a83bad5
+
+build:
+  number: {{ build_number }}
+  skip: false  # [not linux]
+  skip: true   # [win]
+  skip: true   # [osx]
+  detect_binary_files_with_prefix: true
+
+requirements:
+  build:
+    #- {{ compiler('c') }}
+    - make
+    - pkg-config
+    - libffi
+    - zlib
+    - bzip2
+    - xz
+    - sqlite
+    - ncurses
+      #- readline
+      #- openssl #1.1.1.*  # 使用可用的 OpenSSL 版本
+    - tk
+      #- libgcc-ng
+
+  host:
+    - libffi
+    - zlib
+    - bzip2
+    - xz
+    - sqlite
+    - ncurses
+      #- readline
+      #- openssl #1.1.1.*
+    - tk
+      #- libgcc-ng
+
+  run:
+    - zlib
+    - bzip2
+    - xz
+    - sqlite
+    - ncurses
+    - readline
+    - tk
+
+test:
+  commands:
+    - python --version
+    - python -c "import ssl; print('SSL version:', ssl.OPENSSL_VERSION)"
+    - python -c "import sqlite3; print('SQLite OK')"
+    - python -c "import zlib; print('Zlib OK')"
+
+about:
+  home: https://www.python.org/
+  license: Python-2.0
+  license_family: PSF
+  license_file: LICENSE
+  summary: 'General purpose programming language'
+  description: |
+    Python is a programming language that lets you work quickly
+    and integrate systems more effectively.
+  doc_url: https://docs.python.org/2.7/
+  dev_url: https://github.com/python/cpython
