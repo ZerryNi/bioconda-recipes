@@ -7,9 +7,7 @@ source:
   sha256: a6174e26775ba495017e43d1098dd819ccbbf1c5436f319a59cfedabdb4beacd
 
 build:
-  number: 2
-  run_exports:
-    - {{ pin_subpackage("cmip",max_pin="x.x") }}	
+  number: 1
 
 requirements:
   build:
@@ -28,7 +26,3 @@ about:
   license_family: APACHE
   summary: CMIP Classical Molecular Interaction Potentials
   description: "The latest version of the classical molecular interaction potential (CMIP) has the ability to predict the position of crystallographic waters in several proteins with great accuracy."
-
-extra: 
-  additional-platforms:
-    - linux-aarch64
